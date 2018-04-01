@@ -18,10 +18,13 @@ used in the original paper or by the use of the [wordfreq](https://pypi.python.o
 
 ## Example
 ```
+docs_train = ["This is a training document or sentence", "Another train document or sentence"]
+docs_test = ["I'm a test document"]
+
 vectorizer = EmbeddingVectorizer(
-    tokenizer=lambda doc: doc.split(),
-    word_vectorizer=lambda word: word_vectors[word],
-    word_freq=lambda word: word_frequencies[word],
+    tokenizer=lambda doc: doc.split(),  # a function or lambda to tokenize the input documents / sentences
+    word_vectorizer=lambda word: word_vectors[word],  # a function or lambda to obtain a vector for a given word
+    word_freq=lambda word: word_frequencies[word],  # a function or lambda to obtain the frequency of a given word
     weighted=True,
     remove_components=1,
     lowercase=True)
